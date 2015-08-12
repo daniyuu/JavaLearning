@@ -68,7 +68,11 @@ public class ArrayQueue<E> implements Cloneable {
 	}
 	
 	public int nextIndex(int i){
-		return 0;
+		if(++i == data.length){
+			return 0;
+		}else{
+			return i;
+		}
 	}
 	
 	public void ensureCapacity(int minimumCapacity){
