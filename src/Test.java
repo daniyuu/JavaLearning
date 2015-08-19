@@ -23,8 +23,16 @@ public class Test {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Test test = new Test();
+		int t[] = {1,2,3};
+		change(t,2,7);
+		for(int i = 0; i < t.length; ++i){
+			System.out.println(t[i]);
+		}
 
+	}
+	
+	private static void change(int[] t,int pos, int num){
+		t[pos] = num;
 	}
 
 }
