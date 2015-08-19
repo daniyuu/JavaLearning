@@ -42,7 +42,7 @@ public class Sort {
 		}
 	}
 
-	//
+	// o(n^2)
 	public static void insertSort(int[] source){
 		for(int i = 1; i < source.length;++i){
 			for(int j = i; (j > 0) && (source[j] < source[j - 1]); j--){
@@ -50,4 +50,44 @@ public class Sort {
 			}
 		}
 	}
+	
+	public static void ShellSort(int[] source, int Index){
+		int i,j,k;
+		int Temp;
+		boolean Change;
+		int DataLength;
+		int Pointer;
+		
+		DataLength = (int) Index /2;
+		
+		while(DataLength != 0){
+			for(j = DataLength; j <Index; j++){
+				Change = false;
+				Temp = source[j];
+				Pointer = j - DataLength;
+				
+				while(Temp < source[Pointer] && Pointer >= 0 && Pointer <= Index){
+					source[Pointer + DataLength] = source[Pointer];
+					Pointer = Pointer - DataLength;
+					Change = true;
+					if(Pointer < 0 || Pointer > Index){
+						break;
+					}
+				}
+				
+				source[Pointer + DataLength] = Temp;
+				
+				if(Change){
+					System.out.println("sorting...");
+					for(k = 0; k < Index; ++k){
+						System.out.printf("%3s ", source[k]);
+					System.out.println("");
+					}
+				}
+				DataLength = DataLength / 2;
+			}
+		}
+	}
+	
+	
 }
